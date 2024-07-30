@@ -1,0 +1,11 @@
+keras-cv
+keras
+tensorflow
+datasets
+transformers
+evaluate
+tf-keras
+pillow
+matplotlib
+scikit-learn
+jax
