@@ -1,6 +1,6 @@
 import os
 import datasets
-from datasets import Dataset, Features, Value, DatasetDict
+from datasets import Dataset, Features, DatasetDict, ClassLabel
 import pandas as pd
 from PIL import Image
 import math
@@ -18,7 +18,7 @@ class GenDataset:
         curpath = os.path.abspath(os.curdir)
         self.fulldirPath = os.path.join(curpath, foldername)
         self.features = Features({
-            'label': Value(dtype='string'),
+            'label': ClassLabel(names=os.listdir(self.fulldirPath)),
             'image': datasets.Image(decode=True)
         })
     
@@ -71,5 +71,5 @@ class GenDataset:
         })
 
         print(ds_dict)
-        ds_dict.push_to_hub('yaguilherme/eurosat-ds-test2')
+        ds_dict.push_to_hub('yaguilherme/eurosat-full')
         
